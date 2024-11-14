@@ -1,0 +1,12 @@
+{
+  "name": "random-redirect",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "fs": "0.0.1",
+    "path": "0.12.7"
+  }
+}
