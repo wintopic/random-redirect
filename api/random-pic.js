@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports = async (req, res) => {
   // 定义存放图片链接的文件路径
-  const filePath = './img.txt';
+  const filePath = '../img.txt';
   
   // 检查文件是否存在
   if (!fs.existsSync(filePath)) {
