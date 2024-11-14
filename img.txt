@@ -1,7 +1,5 @@
-const pics = [
-  'https://s21.ax1x.com/2024/11/14/pAggsaQ.png',
-  'https://s21.ax1x.com/2024/11/14/pAggcPs.png',
-  'https://s21.ax1x.com/2024/11/14/pAggy5j.png',
-  'https://s21.ax1x.com/2024/11/14/pAggrVg.png',
-  'https://s21.ax1x.com/2024/11/14/pAgcZ1P.png'
-];
+https://s21.ax1x.com/2024/11/14/pAggsaQ.png
+https://s21.ax1x.com/2024/11/14/pAggcPs.png
+https://s21.ax1x.com/2024/11/14/pAggy5j.png
+https://s21.ax1x.com/2024/11/14/pAggrVg.png
+https://s21.ax1x.com/2024/11/14/pAgcZ1P.png
