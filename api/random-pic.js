@@ -1,19 +1,8 @@
 // api/random-pic.js
 
-const fs = require('fs');
-
 module.exports = async (req, res) => {
-  // 定义存放图片链接的文件路径
-  const filePath = './img.txt';
-  
-  // 检查文件是否存在
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: '文件不存在' });
-  }
-
-  // 读取文件内容并按行分割
-  const fileContents = fs.readFileSync(filePath, 'utf-8');
-  const pics = fileContents.split('\n').map(line => line.trim()).filter(line => line !== '');
+  // 从环境变量中读取图片链接并转换为数组
+  const pics = process.env.IMG_LINKS.split(',');
 
   // 随机选择一个图片链接
   const pic = pics[Math.floor(Math.random() * pics.length)];
