@@ -1,140 +1,130 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>图片 API 说明</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自建图片 API</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #333;
-    }
+        /* 顶部栏 */
+        header {
+            background-color: #0070f3;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
 
-    p {
-      font-size: 1.2em;
-      color: #555;
-      max-width: 600px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
 
-    .btn-container {
-      display: flex;
-      gap: 20px;
-    }
+        /* 内容区域 */
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .btn {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      font-size: 1.1em;
-      cursor: pointer;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
+        .content h2 {
+            font-size: 1.5rem;
+            color: #0070f3;
+        }
 
-    .btn:hover {
-      background-color: #0056b3;
-    }
+        .content p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
 
-    .output {
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #f0f0f0;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 500px;
-      text-align: center;
-    }
+        .content code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
 
-    .output img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
+        /* API 调用说明 */
+        .api-call {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    code {
-      display: block;
-      background-color: #f8f9fa;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 20px;
-      font-size: 1.1em;
-      white-space: pre-wrap;
-    }
-  </style>
+        .api-call pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .api-call h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        /* 自适应布局 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .api-call {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>图片 API 使用说明</h1>
-  <p>欢迎使用我们的图片 API！通过调用此 API，你可以随机获取一张图片并显示在页面上。</p>
 
-  <div class="btn-container">
-    <a href="/api/getImage?type=json" class="btn" id="json-btn" target="_blank">获取 JSON 格式的图片链接</a>
-    <a href="/api/getImage" class="btn" id="redirect-btn" target="_blank">获取随机图片（直接重定向）</a>
-  </div>
+    <!-- 页面头部 -->
+    <header>
+        <h1>自建图片 API</h1>
+    </header>
 
-  <div class="output" id="output">
-    <p>API 调用结果将在此显示：</p>
-  </div>
+    <!-- 页面内容 -->
+    <div class="content">
+        <h2>欢迎使用自建图片 API！</h2>
+        <p>这个 API 可以从一个包含图片链接的文本文件中随机选择一个图片并返回。你可以使用以下方法来调用 API 并获取图片：</p>
 
-  <h2>调用方式</h2>
-  <p>你可以使用以下两种方式来调用图片 API：</p>
-  <ul>
-    <li><strong>获取 JSON 格式的图片链接：</strong> 访问 <code>/api/getImage?type=json</code>，你将收到一个包含图片链接的 JSON 响应。</li>
-    <li><strong>直接重定向到随机图片：</strong> 访问 <code>/api/getImage</code>，你将被重定向到一张随机图片。</li>
-  </ul>
+        <!-- API 调用说明 -->
+        <div class="api-call">
+            <h3>1. 获取 JSON 格式的图片链接</h3>
+            <p>如果你希望获取随机图片的 JSON 响应，可以调用如下接口：</p>
+            <pre><code>GET https://<your-vercel-project>.vercel.app/api/getImage?type=json</code></pre>
+            <p>示例响应：</p>
+            <pre><code>{
+  "pic": "https://example.com/image1.jpg"
+}</code></pre>
+        </div>
 
-  <h3>示例请求</h3>
-  <code>
-    https://<your-vercel-project>.vercel.app/api/getImage?type=json
-  </code>
-  <code>
-    https://<your-vercel-project>.vercel.app/api/getImage
-  </code>
+        <div class="api-call">
+            <h3>2. 获取图片重定向</h3>
+            <p>如果你希望直接跳转到随机选择的图片链接，可以调用如下接口：</p>
+            <pre><code>GET https://<your-vercel-project>.vercel.app/api/getImage</code></pre>
+            <p>浏览器会自动跳转到一个随机的图片链接。</p>
+        </div>
 
-  <script>
-    // 监听按钮点击事件
-    document.getElementById('json-btn').addEventListener('click', function(event) {
-      event.preventDefault(); // 阻止默认跳转
-      fetch('/api/getImage?type=json')
-        .then(response => response.json())
-        .then(data => {
-          const output = document.getElementById('output');
-          output.innerHTML = `<p>你可以通过以下链接访问图片：</p><a href="${data.pic}" target="_blank"><img src="${data.pic}" alt="Random Image"></a>`;
-        })
-        .catch(error => {
-          console.error('Error fetching JSON:', error);
-          const output = document.getElementById('output');
-          output.innerHTML = `<p style="color: red;">请求失败，稍后再试！</p>`;
-        });
-    });
+        <h2>如何使用？</h2>
+        <p>你只需要在你的项目中发起 GET 请求，并根据需求选择返回 JSON 格式的图片链接，或者直接跳转到图片本身。</p>
+        <p>在请求时，替换 <code><your-vercel-project></code> 为你在 Vercel 部署后生成的项目名称。</p>
+    </div>
 
-    document.getElementById('redirect-btn').addEventListener('click', function(event) {
-      event.preventDefault(); // 阻止默认跳转
-      fetch('/api/getImage')
-        .then(response => {
-          window.location.href = response.url; // 重定向到图片链接
-        })
-        .catch(error => {
-          console.error('Error redirecting:', error);
-          const output = document.getElementById('output');
-          output.innerHTML = `<p style="color: red;">请求失败，稍后再试！</p>`;
-        });
-    });
-  </script>
 </body>
 </html>
