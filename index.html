@@ -107,7 +107,7 @@
         <div class="api-call">
             <h3>1. 获取 JSON 格式的图片链接</h3>
             <p>如果你希望获取随机图片的 JSON 响应，可以调用如下接口：</p>
-            <pre><code>GET https:// <your-vercel-project> .vercel.app/api/getImage?type=json</code></pre>
+            <pre>GET https://<your-vercel-project>.vercel.app/api/getImage?type=json</pre>
             <p>示例响应：</p>
             <pre><code>{
   "pic": "https://example.com/image1.jpg"
@@ -117,13 +117,13 @@
         <div class="api-call">
             <h3>2. 获取图片重定向</h3>
             <p>如果你希望直接跳转到随机选择的图片链接，可以调用如下接口：</p>
-            <pre><code>GET https:// <your-vercel-project> .vercel.app/api/getImage</code></pre>
+            <pre>GET https://<your-vercel-project>.vercel.app/api/getImage</pre>
             <p>浏览器会自动跳转到一个随机的图片链接。</p>
         </div>
 
         <h2>如何使用？</h2>
         <p>你只需要在你的项目中发起 GET 请求，并根据需求选择返回 JSON 格式的图片链接，或者直接跳转到图片本身。</p>
-        <p>在请求时，替换 <code> <your-vercel-project> </code> 为你在 Vercel 部署后生成的项目名称。</p>
+        <p>在请求时，替换<your-vercel-project>为你在 Vercel 部署后生成的项目名称。</p>
     </div>
 
 </body>
